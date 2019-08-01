@@ -1,0 +1,52 @@
+﻿{
+"intent":"sale",
+"payer":{ 
+      "payment_method":"paypal"
+   },
+   "transactions":[ 
+      { 
+         "amount":{ 
+            "currency":"BRL",
+            "total":"95.00",
+            "details":{ 
+              "shipping":"12",
+              "subtotal":"75",
+              "insurance":"1.00",
+              "handling_fee":"1.00",
+              "tax":"6.00"
+            }
+         },
+         "description":"This is the payment transaction description",
+         "payment_options":{ 
+            "allowed_payment_method":"IMMEDIATE_PAY"
+         },
+         "item_list":{ 
+            "shipping_address": {
+                "recipient_name" : "Felipe Jordan",
+                "line1": "Alameda Santos, 787",
+                "line2": "Cerqueira César",
+                "city": "São Paulo",
+                "country_code": "BR",
+                "postal_code": "01419-001",
+                "state": "São Paulo",
+                "phone": "11-3372-7158"
+            },
+            "items":[ 
+               { 
+                  "name":"Item Name",
+                  "description":"Item Description",
+                  "quantity":"1",
+                  "price":"75",
+                  "tax":"6",
+                  "sku":"Item123",
+                  "currency":"BRL"
+               }
+            ]
+         }
+      }
+   ],
+   "redirect_urls":{ 
+      "return_url":"http://www.paypal.com",
+      "cancel_url":"http://localhost/PP-PLUS/home.php"
+   }
+}

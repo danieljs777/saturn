@@ -1,0 +1,62 @@
+<link type="text/css" href="css/layout.css" rel="stylesheet" />	
+<script language="Javascript">
+parent.document.insert_file.reset();
+</script>
+<style>
+body
+{
+	background:none !important;
+	font-size: 11px !important;
+}
+</style>
+
+<form id="multiple_op" method="post" action="?<? echo($module); ?>/delete_images">
+<input type="hidden" value="<? echo $id; ?>" name="<? echo($config['id_column']); ?>"/>
+<table width="100%" border="0" cellspacing="0" cellpadding="2" class="fullwidth">
+    <thead>
+        <tr>
+            <td width="20"><input type="checkbox" class="checkall" /></td>
+            <td>Imagem</td>
+            <td>Tamanho</td>
+            <td>Tipo</td>
+            <td>Dimensões</td>
+            <td>Capa?</td>
+        </tr>
+    </thead>
+    <tbody>
+<?
+$x=0;
+
+foreach($images as $image)
+{
+
+?>
+    <tr class="<? echo ($x % 2 == 0) ? 'odd' : '' ?>">
+        <td><input type="checkbox" name="id_s[]" id="id_s" value="<? echo($image[$config['file_id_column']]); ?>"/></td>
+        <td><a href="<? echo($image['image']); ?>" target="_blank"><img src="<? echo($image['image']); ?>" width="150" border=0/></a></td>
+        <td><? echo($image['_size_']); ?> Kb</td>
+        <td><? echo($image['_dimensions_']['mime']); ?></td>
+        <td><? echo($image['_dimensions_']['0'] ." x " . $image['_dimensions_']['1']); ?></td>
+        <td><? echo(($image['is_cover'] == 1) ? 'Sim' : 'Não'); ?>&nbsp;</td>
+    </tr>
+
+ <?
+	$x++;
+}
+?>
+<?  if ( $x == 0 ) { ?>
+    <tr>
+        <td align="center" colspan="6"><? if ($x == 0) echo("Sem imagens cadastradas! Use o box acima para inseri-las.");?>&nbsp;</td>
+    </tr>
+<? } ?>
+
+    </tbody>
+    <tr>
+        <td colspan="10">
+        <? if ($_SESSION["admin_luid"] < 2) { ?>
+          <input type="submit" value="Deletar Seleção" class="button">
+        <? } ?>
+        </td>
+    </tr>
+</table>
+</form>

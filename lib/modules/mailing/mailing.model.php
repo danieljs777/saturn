@@ -1,0 +1,8 @@
+<?
+
+class MailingModel extends BaseModel
+{
+
+	
+
+}

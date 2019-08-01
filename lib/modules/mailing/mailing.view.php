@@ -1,0 +1,9 @@
+<?
+
+class MailingView extends BaseView
+{
+	
+	
+}
+	
+	

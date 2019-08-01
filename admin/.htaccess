@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $3 !^.*\.css$
+RewriteRule ([^/]+)/([^/]+)/([^/]+) index.php?m=$1&a=$2&i=$3 [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $2 !^.*\.css$
+RewriteRule ([^/]+)/([^/]+) index.php?m=$1&a=$2 [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^.*\.css$
+RewriteRule ([^/]+) index.php?m=$1 [L,QSA]
+
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+
+#RewriteCond $1 !^(index\.php|images|css|js|robots\.txt)
+#RewriteRule ^(.*)$ /index.php/$1 [L,QSA]
